@@ -78,14 +78,14 @@ hello()                     # 호출    함수를 사용한다.
 hello()
 hello()
 
-def max(a, b):
-    if a> b :
-        return a
-    elif b > a :
-        return b
-    else : # elif로 사용해도 에러는 없음 # elif a == b :
-        return "같다"
-print(max(2, 2))
+# def max(a, b):
+#     if a> b :
+#         return a
+#     elif b > a :
+#         return b
+#     else : # elif로 사용해도 에러는 없음 # elif a == b :
+#         return "같다"
+# print(max(2, 2))
 
 
 """
@@ -214,3 +214,153 @@ hap1(b=20, c=30, d=40)
 print()
 
 # 지역변수, 전역번수
+b = 10
+b = 100
+print(b)
+
+a = 10                  # 전역변수 모든 영역에서 사용
+def disp():
+    a = 100             # 지역변수 할당 영역에서만 사용
+    print("a :",a)
+    print("b :",b)
+disp()
+    
+def disp1():
+    global a            # global 사용하면 그 안에 있는게 전역변수로 바뀜, 중간에 못들어감
+    a = 1000
+    print("a :",a) # a : 1000
+
+disp1()    
+print(a) # 1000
+############지역변수 사칙##################
+def ha():
+    a = 5
+    b = 2
+    return a+b
+
+def ch():
+    a = 5
+    b = 2
+    return a-b
+
+def go():
+    a = 5
+    b = 2
+    return a*b
+
+def mo():
+    a = 5
+    b = 2
+    return a/b
+
+print(ha())
+print(ch())
+print(go())
+print(mo())
+
+############전역변수 사칙##################
+a , b = 5 , 2
+def ha1():
+    return a+b
+
+def ch1():
+    return a-b
+
+def go1():
+    return a*b
+
+def mo1():
+    return a/b
+
+print(ha1())
+print(ch1())
+print(go1())
+print(mo1())
+
+
+# 내장함수
+
+print(abs(10))
+print(abs(-10))
+
+print(all([1,2,3]))
+print(all([1,2,0]))
+print(any([0,"",False]))
+print(any([1]))
+
+print(dir())
+aaaa = 10
+print(dir())
+del aaaa
+print(dir())
+
+import sys # sys모듈안에 있는
+print(dir(sys)) # 사용가능한 목록출력
+
+print(divmod(7, 3)) # 몫 나머지
+print("1+2")
+print(eval("1+2"))    
+
+a = 10
+print(id(a))
+print(id(10))
+b = a
+print(id(b))
+
+print(min("python"))
+print(max("python"))
+print(min([1,3,5,7,9]))
+    
+m = [50,10,40,30,20] #list
+m.sort() #list.sort
+print(m) #원본순서 정렬되어있음
+m = sorted(m) 
+
+print(list(zip([1,2,3], [4,5,6])))
+    
+    
+# 람다함수
+def add1(a, b):
+    return a+b
+print(add1(3,7))
+add2 = lambda a,b : a+b # lambda 매개변수 : 리턴값
+print(add2(4,9))
+print((lambda a,b : a+b)(5,20)) # (lambda 매개변수형식 : 리턴값)(매개변수)
+
+# filter(function, list) #리스트로 감싸야 출력가능
+def even(a):
+    return a%2==0
+print(even(10))
+
+print(list(filter(even, range(10)))) #even함수 만들어서 사용
+print(list(filter(lambda x : x%2==0, range(10)))) #람다함수로 바로 사용
+
+# map(function, list) #리스트로 감싸야 출력가능
+print(list(map(lambda x : x*2, range(10))))
+
+# reduce(function, list) #얘는 결과 합산해서 출력이라 리스트로 감쌀 필요없음
+from functools import reduce
+print(reduce(lambda x,y : x+y, range(10)))
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
