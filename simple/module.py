@@ -349,8 +349,25 @@ print( p.findall( s ) )
 p = re.compile( "^python\s\w+", re.MULTILINE )  # re.M
 print( p.findall( s ) )
 
-
-
+# 이메일 유효성 검사
+emails = """
+aaa@aaa.com
+aaa@a.com
+AAA@AAA.com
+1aa@1aa.com
+&&&@&&&.com
+@aaa.com
+aaa@aaa@com
+aaa@@a.com
+aaaaaaaaaaaaaaaaaaaaa@a.com
+aa1@aaa.com
+aaa@aaa.7com
+aaa@aaa.co.kr
+"""
+p = re.compile("^[a-z][a-z0-9]{2,15}@[a-z0-9]{2,}\.[a-z]{2,}$", re.M)
+print(p.findall(emails))
+p = re.compile("^[a-z][a-z0-9]{2,15}@[a-z0-9]{2,}\.[a-z]{2,}\.[a-z]{2,}$", re.M)
+print(p.findall(emails))
 
 
 
