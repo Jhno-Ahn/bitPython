@@ -1,0 +1,833 @@
+<html lang='ko'>
+<head>
+<title>네이버 금융</title>
+<meta http-equiv='Content-Type' content='text/html; charset=euc-kr'>
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<link rel="stylesheet" type="text/css" href="https://ssl.pstatic.net/imgstock/static.pc/20220816134009/css/finance.css">
+
+<script language="javascript">document.domain="naver.com";</script>
+<script type="text/javascript" src="https://ssl.pstatic.net/imgstock/static.pc/20220816134009/js/info/jindo.min.ns.1.5.3.euckr.js"></script>
+<script type="text/javascript" src="https://ssl.pstatic.net/imgstock/static.pc/20220816134009/js/lcslog.js"></script>
+</head>
+<body>
+<div class="tbl_area">
+	<table border="1" class="tbl_exchange" summary="환전 고시 환율 리스트">
+	<caption>환전 고시 환율</caption>
+	<colgroup>
+		<col width="162">
+		<col width="92">
+		<col width="92">
+		<col width="92">
+		<col width="93">
+		<col width="92">
+		<col width="90">
+	</colgroup>
+	<thead>
+	<tr>
+	<th rowspan="2" 
+	
+		
+		 class="th_ex1"
+	
+	>
+	<a href="#" onClick="javascript:changeOrder('exchange'); return false;"><span>통화명</span></a></th>
+	<th rowspan="2" class="th_ex2"><span>매매기준율</span></th>
+	<th colspan="2" class="th_ex3"><span>현찰</span></th>
+	<th colspan="2" class="th_ex4"><span>송금</span></th>
+	<th rowspan="2" class="th_ex6"><span>미화환산율</span></th>
+	</tr>
+	<tr>
+	<th class="th_ex7"><span>사실 때 </span></th>
+	<th class="th_ex8"><span>파실 때 </span></th>
+	<th class="th_ex9"><span>보내실 때 </span></th>
+	<th class="th_ex10"><span>받으실 때</span></th>
+	</tr>
+		</thead>
+			<tbody>
+				
+				<tr>
+				<td class="tit"><a href="/marketindex/exchangeDetail.naver?marketindexCd=FX_USDKRW" target="_parent" onclick="parent.clickcr(this, 'exl.exlist', 'FX_USDKRW', '1', event);">
+				
+					
+					
+					
+					미국 USD
+				
+				</a></td>
+				<td class="sale">1,337.50</td>
+				<td>1,360.90</td>
+				<td>1,314.10</td>
+				<td>1,350.60</td>
+				<td>1,324.40</td>
+				<td>1.000</td>
+				</tr>
+				
+				<tr>
+				<td class="tit"><a href="/marketindex/exchangeDetail.naver?marketindexCd=FX_EURKRW" target="_parent" onclick="parent.clickcr(this, 'exl.exlist', 'FX_EURKRW', '2', event);">
+				
+					
+					
+					
+					유럽연합 EUR
+				
+				</a></td>
+				<td class="sale">1,341.11</td>
+				<td>1,367.79</td>
+				<td>1,314.43</td>
+				<td>1,354.52</td>
+				<td>1,327.70</td>
+				<td>1.003</td>
+				</tr>
+				
+				<tr>
+				<td class="tit"><a href="/marketindex/exchangeDetail.naver?marketindexCd=FX_JPYKRW" target="_parent" onclick="parent.clickcr(this, 'exl.exlist', 'FX_JPYKRW', '3', event);">
+				
+					일본 JPY (100엔)
+					
+					
+					
+				
+				</a></td>
+				<td class="sale">975.10</td>
+				<td>992.16</td>
+				<td>958.04</td>
+				<td>984.65</td>
+				<td>965.55</td>
+				<td>0.729</td>
+				</tr>
+				
+				<tr>
+				<td class="tit"><a href="/marketindex/exchangeDetail.naver?marketindexCd=FX_CNYKRW" target="_parent" onclick="parent.clickcr(this, 'exl.exlist', 'FX_CNYKRW', '4', event);">
+				
+					
+					
+					
+					중국 CNY
+				
+				</a></td>
+				<td class="sale">195.53</td>
+				<td>205.30</td>
+				<td>185.76</td>
+				<td>197.48</td>
+				<td>193.58</td>
+				<td>0.146</td>
+				</tr>
+				
+				<tr>
+				<td class="tit"><a href="/marketindex/exchangeDetail.naver?marketindexCd=FX_HKDKRW" target="_parent" onclick="parent.clickcr(this, 'exl.exlist', 'FX_HKDKRW', '5', event);">
+				
+					
+					
+					
+					홍콩 HKD
+				
+				</a></td>
+				<td class="sale">170.46</td>
+				<td>173.81</td>
+				<td>167.11</td>
+				<td>172.16</td>
+				<td>168.76</td>
+				<td>0.127</td>
+				</tr>
+				
+				<tr>
+				<td class="tit"><a href="/marketindex/exchangeDetail.naver?marketindexCd=FX_TWDKRW" target="_parent" onclick="parent.clickcr(this, 'exl.exlist', 'FX_TWDKRW', '6', event);">
+				
+					
+					
+					
+					대만 TWD
+				
+				</a></td>
+				<td class="sale">44.39</td>
+				<td>50.20</td>
+				<td>41.29</td>
+				<td>0.00</td>
+				<td>0.00</td>
+				<td>0.033</td>
+				</tr>
+				
+				<tr>
+				<td class="tit"><a href="/marketindex/exchangeDetail.naver?marketindexCd=FX_GBPKRW" target="_parent" onclick="parent.clickcr(this, 'exl.exlist', 'FX_GBPKRW', '7', event);">
+				
+					
+					
+					
+					영국 GBP
+				
+				</a></td>
+				<td class="sale">1,580.26</td>
+				<td>1,611.39</td>
+				<td>1,549.13</td>
+				<td>1,596.06</td>
+				<td>1,564.46</td>
+				<td>1.182</td>
+				</tr>
+				
+				<tr>
+				<td class="tit"><a href="/marketindex/exchangeDetail.naver?marketindexCd=FX_OMRKRW" target="_parent" onclick="parent.clickcr(this, 'exl.exlist', 'FX_OMRKRW', '8', event);">
+				
+					
+					
+					
+					오만 OMR
+				
+				</a></td>
+				<td class="sale">3,473.94</td>
+				<td>3,783.12</td>
+				<td>3,265.51</td>
+				<td>0.00</td>
+				<td>0.00</td>
+				<td>2.597</td>
+				</tr>
+				
+				<tr>
+				<td class="tit"><a href="/marketindex/exchangeDetail.naver?marketindexCd=FX_CADKRW" target="_parent" onclick="parent.clickcr(this, 'exl.exlist', 'FX_CADKRW', '9', event);">
+				
+					
+					
+					
+					캐나다 CAD
+				
+				</a></td>
+				<td class="sale">1,028.57</td>
+				<td>1,048.83</td>
+				<td>1,008.31</td>
+				<td>1,038.85</td>
+				<td>1,018.29</td>
+				<td>0.769</td>
+				</tr>
+				
+				<tr>
+				<td class="tit"><a href="/marketindex/exchangeDetail.naver?marketindexCd=FX_CHFKRW" target="_parent" onclick="parent.clickcr(this, 'exl.exlist', 'FX_CHFKRW', '10', event);">
+				
+					
+					
+					
+					스위스 CHF
+				
+				</a></td>
+				<td class="sale">1,393.96</td>
+				<td>1,421.42</td>
+				<td>1,366.50</td>
+				<td>1,407.89</td>
+				<td>1,380.03</td>
+				<td>1.042</td>
+				</tr>
+				
+				<tr>
+				<td class="tit"><a href="/marketindex/exchangeDetail.naver?marketindexCd=FX_SEKKRW" target="_parent" onclick="parent.clickcr(this, 'exl.exlist', 'FX_SEKKRW', '11', event);">
+				
+					
+					
+					
+					스웨덴 SEK
+				
+				</a></td>
+				<td class="sale">126.19</td>
+				<td>129.28</td>
+				<td>123.10</td>
+				<td>127.45</td>
+				<td>124.93</td>
+				<td>0.094</td>
+				</tr>
+				
+				<tr>
+				<td class="tit"><a href="/marketindex/exchangeDetail.naver?marketindexCd=FX_AUDKRW" target="_parent" onclick="parent.clickcr(this, 'exl.exlist', 'FX_AUDKRW', '12', event);">
+				
+					
+					
+					
+					호주 AUD
+				
+				</a></td>
+				<td class="sale">919.93</td>
+				<td>938.05</td>
+				<td>901.81</td>
+				<td>929.12</td>
+				<td>910.74</td>
+				<td>0.688</td>
+				</tr>
+				
+				<tr>
+				<td class="tit"><a href="/marketindex/exchangeDetail.naver?marketindexCd=FX_NZDKRW" target="_parent" onclick="parent.clickcr(this, 'exl.exlist', 'FX_NZDKRW', '13', event);">
+				
+					
+					
+					
+					뉴질랜드 NZD
+				
+				</a></td>
+				<td class="sale">826.98</td>
+				<td>843.27</td>
+				<td>810.69</td>
+				<td>835.24</td>
+				<td>818.72</td>
+				<td>0.618</td>
+				</tr>
+				
+				<tr>
+				<td class="tit"><a href="/marketindex/exchangeDetail.naver?marketindexCd=FX_CZKKRW" target="_parent" onclick="parent.clickcr(this, 'exl.exlist', 'FX_CZKKRW', '14', event);">
+				
+					
+					
+					
+					체코 CZK
+				
+				</a></td>
+				<td class="sale">54.44</td>
+				<td>59.06</td>
+				<td>49.55</td>
+				<td>55.03</td>
+				<td>53.85</td>
+				<td>0.041</td>
+				</tr>
+				
+				<tr>
+				<td class="tit"><a href="/marketindex/exchangeDetail.naver?marketindexCd=FX_CLPKRW" target="_parent" onclick="parent.clickcr(this, 'exl.exlist', 'FX_CLPKRW', '15', event);">
+				
+					
+					
+					
+					칠레 CLP
+				
+				</a></td>
+				<td class="sale">1.42</td>
+				<td>1.53</td>
+				<td>1.31</td>
+				<td>0.00</td>
+				<td>0.00</td>
+				<td>0.001</td>
+				</tr>
+				
+				<tr>
+				<td class="tit"><a href="/marketindex/exchangeDetail.naver?marketindexCd=FX_TRYKRW" target="_parent" onclick="parent.clickcr(this, 'exl.exlist', 'FX_TRYKRW', '16', event);">
+				
+					
+					
+					
+					터키 TRY
+				
+				</a></td>
+				<td class="sale">73.90</td>
+				<td>0.00</td>
+				<td>0.00</td>
+				<td>74.71</td>
+				<td>73.09</td>
+				<td>0.055</td>
+				</tr>
+				
+				<tr>
+				<td class="tit"><a href="/marketindex/exchangeDetail.naver?marketindexCd=FX_MNTKRW" target="_parent" onclick="parent.clickcr(this, 'exl.exlist', 'FX_MNTKRW', '17', event);">
+				
+					
+					
+					
+					몽골 MNT
+				
+				</a></td>
+				<td class="sale">0.42</td>
+				<td>0.00</td>
+				<td>0.00</td>
+				<td>0.00</td>
+				<td>0.00</td>
+				<td>0.000</td>
+				</tr>
+				
+				<tr>
+				<td class="tit"><a href="/marketindex/exchangeDetail.naver?marketindexCd=FX_ILSKRW" target="_parent" onclick="parent.clickcr(this, 'exl.exlist', 'FX_ILSKRW', '18', event);">
+				
+					
+					
+					
+					이스라엘 ILS
+				
+				</a></td>
+				<td class="sale">408.52</td>
+				<td>449.37</td>
+				<td>375.84</td>
+				<td>0.00</td>
+				<td>0.00</td>
+				<td>0.305</td>
+				</tr>
+				
+				<tr>
+				<td class="tit"><a href="/marketindex/exchangeDetail.naver?marketindexCd=FX_DKKKRW" target="_parent" onclick="parent.clickcr(this, 'exl.exlist', 'FX_DKKKRW', '19', event);">
+				
+					
+					
+					
+					덴마크 DKK
+				
+				</a></td>
+				<td class="sale">180.33</td>
+				<td>184.74</td>
+				<td>175.92</td>
+				<td>182.13</td>
+				<td>178.53</td>
+				<td>0.135</td>
+				</tr>
+				
+				<tr>
+				<td class="tit"><a href="/marketindex/exchangeDetail.naver?marketindexCd=FX_NOKKRW" target="_parent" onclick="parent.clickcr(this, 'exl.exlist', 'FX_NOKKRW', '20', event);">
+				
+					
+					
+					
+					노르웨이 NOK
+				
+				</a></td>
+				<td class="sale">136.08</td>
+				<td>139.41</td>
+				<td>132.75</td>
+				<td>137.44</td>
+				<td>134.72</td>
+				<td>0.102</td>
+				</tr>
+				
+				<tr>
+				<td class="tit"><a href="/marketindex/exchangeDetail.naver?marketindexCd=FX_SARKRW" target="_parent" onclick="parent.clickcr(this, 'exl.exlist', 'FX_SARKRW', '21', event);">
+				
+					
+					
+					
+					사우디아라비아 SAR
+				
+				</a></td>
+				<td class="sale">356.14</td>
+				<td>378.57</td>
+				<td>331.57</td>
+				<td>359.70</td>
+				<td>352.58</td>
+				<td>0.266</td>
+				</tr>
+				
+				<tr>
+				<td class="tit"><a href="/marketindex/exchangeDetail.naver?marketindexCd=FX_KWDKRW" target="_parent" onclick="parent.clickcr(this, 'exl.exlist', 'FX_KWDKRW', '22', event);">
+				
+					
+					
+					
+					쿠웨이트 KWD
+				
+				</a></td>
+				<td class="sale">4,351.01</td>
+				<td>4,633.82</td>
+				<td>4,002.93</td>
+				<td>4,394.52</td>
+				<td>4,307.50</td>
+				<td>3.253</td>
+				</tr>
+				
+				<tr>
+				<td class="tit"><a href="/marketindex/exchangeDetail.naver?marketindexCd=FX_BHDKRW" target="_parent" onclick="parent.clickcr(this, 'exl.exlist', 'FX_BHDKRW', '23', event);">
+				
+					
+					
+					
+					바레인 BHD
+				
+				</a></td>
+				<td class="sale">3,547.56</td>
+				<td>3,774.60</td>
+				<td>3,263.76</td>
+				<td>3,583.03</td>
+				<td>3,512.09</td>
+				<td>2.652</td>
+				</tr>
+				
+				<tr>
+				<td class="tit"><a href="/marketindex/exchangeDetail.naver?marketindexCd=FX_AEDKRW" target="_parent" onclick="parent.clickcr(this, 'exl.exlist', 'FX_AEDKRW', '24', event);">
+				
+					
+					
+					
+					아랍에미리트 AED
+				
+				</a></td>
+				<td class="sale">364.13</td>
+				<td>384.15</td>
+				<td>339.01</td>
+				<td>367.77</td>
+				<td>360.49</td>
+				<td>0.272</td>
+				</tr>
+				
+				<tr>
+				<td class="tit"><a href="/marketindex/exchangeDetail.naver?marketindexCd=FX_JODKRW" target="_parent" onclick="parent.clickcr(this, 'exl.exlist', 'FX_JODKRW', '25', event);">
+				
+					
+					
+					
+					요르단 JOD
+				
+				</a></td>
+				<td class="sale">1,886.46</td>
+				<td>2,054.35</td>
+				<td>1,735.55</td>
+				<td>0.00</td>
+				<td>0.00</td>
+				<td>1.410</td>
+				</tr>
+				
+				<tr>
+				<td class="tit"><a href="/marketindex/exchangeDetail.naver?marketindexCd=FX_EGPKRW" target="_parent" onclick="parent.clickcr(this, 'exl.exlist', 'FX_EGPKRW', '26', event);">
+				
+					
+					
+					
+					이집트 EGP
+				
+				</a></td>
+				<td class="sale">69.77</td>
+				<td>0.00</td>
+				<td>0.00</td>
+				<td>0.00</td>
+				<td>0.00</td>
+				<td>0.052</td>
+				</tr>
+				
+				<tr>
+				<td class="tit"><a href="/marketindex/exchangeDetail.naver?marketindexCd=FX_THBKRW" target="_parent" onclick="parent.clickcr(this, 'exl.exlist', 'FX_THBKRW', '27', event);">
+				
+					
+					
+					
+					태국 THB
+				
+				</a></td>
+				<td class="sale">37.29</td>
+				<td>39.15</td>
+				<td>35.06</td>
+				<td>37.66</td>
+				<td>36.92</td>
+				<td>0.028</td>
+				</tr>
+				
+				<tr>
+				<td class="tit"><a href="/marketindex/exchangeDetail.naver?marketindexCd=FX_SGDKRW" target="_parent" onclick="parent.clickcr(this, 'exl.exlist', 'FX_SGDKRW', '28', event);">
+				
+					
+					
+					
+					싱가포르 SGD
+				
+				</a></td>
+				<td class="sale">959.71</td>
+				<td>978.80</td>
+				<td>940.62</td>
+				<td>969.30</td>
+				<td>950.12</td>
+				<td>0.718</td>
+				</tr>
+				
+				<tr>
+				<td class="tit"><a href="/marketindex/exchangeDetail.naver?marketindexCd=FX_MYRKRW" target="_parent" onclick="parent.clickcr(this, 'exl.exlist', 'FX_MYRKRW', '29', event);">
+				
+					
+					
+					
+					말레이시아 MYR
+				
+				</a></td>
+				<td class="sale">298.28</td>
+				<td>317.07</td>
+				<td>276.21</td>
+				<td>0.00</td>
+				<td>295.30</td>
+				<td>0.223</td>
+				</tr>
+				
+				<tr>
+				<td class="tit"><a href="/marketindex/exchangeDetail.naver?marketindexCd=FX_IDRKRW" target="_parent" onclick="parent.clickcr(this, 'exl.exlist', 'FX_IDRKRW', '30', event);">
+				
+					
+					인도네시아 IDR 100
+					
+					
+				
+				</a></td>
+				<td class="sale">9.03</td>
+				<td>9.66</td>
+				<td>8.13</td>
+				<td>9.12</td>
+				<td>8.94</td>
+				<td>0.007</td>
+				</tr>
+				
+				<tr>
+				<td class="tit"><a href="/marketindex/exchangeDetail.naver?marketindexCd=FX_QARKRW" target="_parent" onclick="parent.clickcr(this, 'exl.exlist', 'FX_QARKRW', '31', event);">
+				
+					
+					
+					
+					카타르 QAR
+				
+				</a></td>
+				<td class="sale">365.14</td>
+				<td>0.00</td>
+				<td>0.00</td>
+				<td>0.00</td>
+				<td>0.00</td>
+				<td>0.273</td>
+				</tr>
+				
+				<tr>
+				<td class="tit"><a href="/marketindex/exchangeDetail.naver?marketindexCd=FX_KZTKRW" target="_parent" onclick="parent.clickcr(this, 'exl.exlist', 'FX_KZTKRW', '32', event);">
+				
+					
+					
+					
+					카자흐스탄 KZT
+				
+				</a></td>
+				<td class="sale">2.81</td>
+				<td>0.00</td>
+				<td>0.00</td>
+				<td>0.00</td>
+				<td>0.00</td>
+				<td>0.002</td>
+				</tr>
+				
+				<tr>
+				<td class="tit"><a href="/marketindex/exchangeDetail.naver?marketindexCd=FX_BNDKRW" target="_parent" onclick="parent.clickcr(this, 'exl.exlist', 'FX_BNDKRW', '33', event);">
+				
+					
+					
+					
+					브루나이 BND
+				
+				</a></td>
+				<td class="sale">959.71</td>
+				<td>998.09</td>
+				<td>902.13</td>
+				<td>0.00</td>
+				<td>0.00</td>
+				<td>0.718</td>
+				</tr>
+				
+				<tr>
+				<td class="tit"><a href="/marketindex/exchangeDetail.naver?marketindexCd=FX_INRKRW" target="_parent" onclick="parent.clickcr(this, 'exl.exlist', 'FX_INRKRW', '34', event);">
+				
+					
+					
+					
+					인도 INR
+				
+				</a></td>
+				<td class="sale">16.73</td>
+				<td>0.00</td>
+				<td>0.00</td>
+				<td>0.00</td>
+				<td>0.00</td>
+				<td>0.013</td>
+				</tr>
+				
+				<tr>
+				<td class="tit"><a href="/marketindex/exchangeDetail.naver?marketindexCd=FX_PKRKRW" target="_parent" onclick="parent.clickcr(this, 'exl.exlist', 'FX_PKRKRW', '35', event);">
+				
+					
+					
+					
+					파키스탄 PKR
+				
+				</a></td>
+				<td class="sale">6.22</td>
+				<td>0.00</td>
+				<td>0.00</td>
+				<td>0.00</td>
+				<td>0.00</td>
+				<td>0.005</td>
+				</tr>
+				
+				<tr>
+				<td class="tit"><a href="/marketindex/exchangeDetail.naver?marketindexCd=FX_BDTKRW" target="_parent" onclick="parent.clickcr(this, 'exl.exlist', 'FX_BDTKRW', '36', event);">
+				
+					
+					
+					
+					방글라데시 BDT
+				
+				</a></td>
+				<td class="sale">14.08</td>
+				<td>0.00</td>
+				<td>0.00</td>
+				<td>0.00</td>
+				<td>0.00</td>
+				<td>0.011</td>
+				</tr>
+				
+				<tr>
+				<td class="tit"><a href="/marketindex/exchangeDetail.naver?marketindexCd=FX_PHPKRW" target="_parent" onclick="parent.clickcr(this, 'exl.exlist', 'FX_PHPKRW', '37', event);">
+				
+					
+					
+					
+					필리핀 PHP
+				
+				</a></td>
+				<td class="sale">23.90</td>
+				<td>26.29</td>
+				<td>21.95</td>
+				<td>24.13</td>
+				<td>23.67</td>
+				<td>0.018</td>
+				</tr>
+				
+				<tr>
+				<td class="tit"><a href="/marketindex/exchangeDetail.naver?marketindexCd=FX_MXNKRW" target="_parent" onclick="parent.clickcr(this, 'exl.exlist', 'FX_MXNKRW', '38', event);">
+				
+					
+					
+					
+					멕시코 MXN
+				
+				</a></td>
+				<td class="sale">66.19</td>
+				<td>72.80</td>
+				<td>60.64</td>
+				<td>66.85</td>
+				<td>65.53</td>
+				<td>0.050</td>
+				</tr>
+				
+				<tr>
+				<td class="tit"><a href="/marketindex/exchangeDetail.naver?marketindexCd=FX_BRLKRW" target="_parent" onclick="parent.clickcr(this, 'exl.exlist', 'FX_BRLKRW', '39', event);">
+				
+					
+					
+					
+					브라질 BRL
+				
+				</a></td>
+				<td class="sale">258.67</td>
+				<td>285.05</td>
+				<td>237.98</td>
+				<td>0.00</td>
+				<td>255.57</td>
+				<td>0.193</td>
+				</tr>
+				
+				<tr>
+				<td class="tit"><a href="/marketindex/exchangeDetail.naver?marketindexCd=FX_VNDKRW" target="_parent" onclick="parent.clickcr(this, 'exl.exlist', 'FX_VNDKRW', '40', event);">
+				
+					
+					
+					베트남 VND 100
+					
+				
+				</a></td>
+				<td class="sale">5.71</td>
+				<td>6.38</td>
+				<td>5.04</td>
+				<td>5.76</td>
+				<td>5.66</td>
+				<td>0.004</td>
+				</tr>
+				
+				<tr>
+				<td class="tit"><a href="/marketindex/exchangeDetail.naver?marketindexCd=FX_ZARKRW" target="_parent" onclick="parent.clickcr(this, 'exl.exlist', 'FX_ZARKRW', '41', event);">
+				
+					
+					
+					
+					남아프리카 공화국 ZAR
+				
+				</a></td>
+				<td class="sale">78.47</td>
+				<td>83.17</td>
+				<td>72.20</td>
+				<td>79.41</td>
+				<td>77.53</td>
+				<td>0.059</td>
+				</tr>
+				
+				<tr>
+				<td class="tit"><a href="/marketindex/exchangeDetail.naver?marketindexCd=FX_RUBKRW" target="_parent" onclick="parent.clickcr(this, 'exl.exlist', 'FX_RUBKRW', '42', event);">
+				
+					
+					
+					
+					러시아 RUB
+				
+				</a></td>
+				<td class="sale">22.48</td>
+				<td>24.61</td>
+				<td>18.55</td>
+				<td>23.26</td>
+				<td>21.70</td>
+				<td>0.017</td>
+				</tr>
+				
+				<tr>
+				<td class="tit"><a href="/marketindex/exchangeDetail.naver?marketindexCd=FX_HUFKRW" target="_parent" onclick="parent.clickcr(this, 'exl.exlist', 'FX_HUFKRW', '43', event);">
+				
+					
+					
+					
+					헝가리 HUF
+				
+				</a></td>
+				<td class="sale">3.31</td>
+				<td>3.61</td>
+				<td>3.05</td>
+				<td>3.34</td>
+				<td>3.28</td>
+				<td>0.003</td>
+				</tr>
+				
+				<tr>
+				<td class="tit"><a href="/marketindex/exchangeDetail.naver?marketindexCd=FX_PLNKRW" target="_parent" onclick="parent.clickcr(this, 'exl.exlist', 'FX_PLNKRW', '44', event);">
+				
+					
+					
+					
+					폴란드 PLN
+				
+				</a></td>
+				<td class="sale">282.36</td>
+				<td>304.94</td>
+				<td>259.78</td>
+				<td>285.46</td>
+				<td>279.26</td>
+				<td>0.211</td>
+				</tr>
+				
+			</tbody>
+		</table>
+		</div>
+	<script type="text/javascript" language="javascript">
+		// 통화명 정렬 - asc, desc
+
+		// xss 공격 때문에 validation check 추가
+		regex = new RegExp("^asc$|^desc$");
+				
+		if ("".match(regex)) {
+			var CURRENT_SORT_ORDER = "";
+		} else {
+			var CURRENT_SORT_ORDER = "asc";
+		}
+		
+		function changeOrder(type) {
+		var sortOrder = null;
+		if (CURRENT_SORT_ORDER == "asc") {
+			sortOrder = "desc";
+		} else if (CURRENT_SORT_ORDER == "desc") {
+			sortOrder = "asc";
+		} else {
+			sortOrder = "desc";
+		}
+		
+		if(type == "exchange") {
+			location.href= "/marketindex/exchangeList.naver?sortOrder="+sortOrder;
+		} else {		
+			location.href= "/marketindex/worldExchangeList.naver?sortOrder="+sortOrder;
+		}
+	}
+	</script>
+<script type="text/javascript">
+
+</script>
+</body>
+</html>

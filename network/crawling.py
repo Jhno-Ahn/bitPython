@@ -295,7 +295,36 @@ params = pa.urlencode( values )
 url = url + "?" + params
 # print( url )
 data = req.urlopen( url ).read().decode( "utf-8" )
-print( data )
+# print( data )
+
+with open("whether.txt","w",encoding="utf-8") as f :
+    f.write(data)
+
+soup = bs(data, "html.parser")
+title = soup.find("title")
+print("<<" + title.string + ">>")
+
+cities = soup.find_all("city")
+# for city in cities :
+#     print(city.string)
+
+datas = soup.find_all("data")
+for data in datas :
+    print(data.parent.city.string, end="\t")
+    print(data.tmef.string, "\t", data.wf.string, 
+          "\t", data.tmn.string, "\t", data.tmx.string)
+print()
+
+    
+
+
+
+
+
+
+
+
+
 
 
 
