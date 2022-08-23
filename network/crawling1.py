@@ -130,35 +130,126 @@ from webdriver_manager.core.utils import ChromeType
 # 공공데이터 포털 - 국토교통부_아파트매매 실거래 상세 자료
 import urllib.request as req
 import urllib.parse as pa
-#url = "http://openapi.molit.go.kr/OpenAPI_ToolInstallPackage/service/rest/RTMSOBJSvc/getRTMSDataSvcAptTradeDev?LAWD_CD=11545&DEAL_YMD=202207&serviceKey=OUwSlot%2BeCADq1M9zzdj8Sh1Ni9C4Iiaj9VqSEnyvikodjynkoS1hrbUsP6mSENccvTJH%2FDe3s3y7i836Lk7ew%3D%3D"
-url = "http://openapi.molit.go.kr/OpenAPI_ToolInstallPackage/service/rest/RTMSOBJSvc/getRTMSDataSvcAptTradeDev"
-values = {
-    "LAWD_CD" : 11545,
-    "DEAL_YMD" : 202207,
-    "serviceKey" : "OUwSlot%2BeCADq1M9zzdj8Sh1Ni9C4Iiaj9VqSEnyvikodjynkoS1hrbUsP6mSENccvTJH%2FDe3s3y7i836Lk7ew%3D%3D"
-    }
+# from numpy.typing.tests.test_typing import _strip_filename
+url = "http://openapi.molit.go.kr/OpenAPI_ToolInstallPackage/service/rest/RTMSOBJSvc/getRTMSDataSvcAptTradeDev?LAWD_CD=11545&DEAL_YMD=202207&serviceKey=OUwSlot%2BeCADq1M9zzdj8Sh1Ni9C4Iiaj9VqSEnyvikodjynkoS1hrbUsP6mSENccvTJH%2FDe3s3y7i836Lk7ew%3D%3D"
+# url = "http://openapi.molit.go.kr/OpenAPI_ToolInstallPackage/service/rest/RTMSOBJSvc/getRTMSDataSvcAptTradeDev"
+# values = {
+#     "LAWD_CD" : 11545,
+#     "DEAL_YMD" : 202207,
+#     "serviceKey" : "OUwSlot%2BeCADq1M9zzdj8Sh1Ni9C4Iiaj9VqSEnyvikodjynkoS1hrbUsP6mSENccvTJH%2FDe3s3y7i836Lk7ew%3D%3D"
+#     }
+#
+# params = pa.urlencode( values )
+# url = url + "?" + params
+# print( url )
 
-params = pa.urlencode( values )
-url = url + "?" + params
-print( url )
+# data = req.urlopen( url ).read().decode( "utf-8" )
+# # print( data )
+# with open( "apart202207.txt", "w", encoding="utf-8" ) as f :
+#     f.write( data )    
+# data = data.replace( "거래금액", "price" )
+# data = data.replace( "법정동", "dong" )
+# data = data.replace( "아파트", "apartname" )
+# data = data.replace( "월", "month" )
+# data = data.replace( "일", "day" )
+#
+# soup = bs( data, "html.parser" )
+# items = soup.select( "item" )
+# for item in items :
+#     # print( item )
+#     print( item.dong.string, item.month.string, "-", item.day.string,
+#            item.apartname.string, item.price.string )
 
-data = req.urlopen( url ).read().decode( "utf-8" )
+    
+# JSON 데이터
+# import json
+# import os.path
+# url = "https://api.github.com/repositories"
+# filename = "github.txt"
+#
+# if not os.path.exists( filename ) :
+#     req.urlretrieve( url, filename )
+# items = json.load( open( filename, "rt", encoding="utf-8" ) )    
+#
+# for item in items :
+#     print( item["id"], item["name"], item["owner"]["login"] )
+    
+# CSV 데이터
+# import csv, codecs
+# filename = "test.csv"
+# write = codecs.open( filename, "w", encoding="utf-8" )    
+# writer = csv.writer( write, delimiter="," )
+# writer.writerow( ["아이디","이름","가격"] )
+# writer.writerow( ["1000","HDD",200000] )
+# writer.writerow( ["1001","SSD",300000] )
+# writer.writerow( ["1002","Monitor",150000] )
+# writer.writerow( ["1003","Mouse",20000] )
+# writer.writerow( ["1004","Keyboard",30000] )
+# print( "파일 생성 완료" )
+# write.close()
+#
+# readcsv = codecs.open( filename, "r", encoding="utf-8" ).read()
+# data = []
+# rows = readcsv.split( "\r\n" )
+# # print( rows )
+# for row in rows :
+#     if row == "" :
+#         break
+#     cells = row.split( "," )
+#     data.append( cells )
+#
 # print( data )
-with open( "apart202207.txt", "w", encoding="utf-8" ) as f :
-    f.write( data )    
-data = data.replace( "거래금액", "price" )
-data = data.replace( "법정동", "dong" )
-data = data.replace( "아파트", "apartname" )
-data = data.replace( "월", "month" )
-data = data.replace( "일", "day" )
+# for d in data :
+#     print( d[0], "\t", d[1], "\t", d[2] )
+    
+# 엑셀 데이터
+import openpyxl
+filename = "stat_100701.xlsx"
+wb = openpyxl.load_workbook(filename)
+# ws = wb.worksheets[0]
+ws = wb.active
+for row in ws.rows :
+    for data in row :
+        if data.value == None :
+            print("", end="\t")
+        else :
+            print(data.value, end="\t")
+    print()
 
-soup = bs( data, "html.parser" )
-items = soup.select( "item" )
-for item in items :
-    # print( item )
-    print( item.dong.string, item.month.string, "-", item.day.string,
-           item.apartname.string, item.price.string )
+data = []
+for row in ws.rows :
+    if row[9] != None and row[10] != None :
+        data.append([row[9].value, row[10].value])
+del(data[0:4])
 
+data = sorted(data, key=lambda x : x[1], reverse=True)
+for d in data :
+    print(d)
+
+savefile = "population.xlsx"
+swb = openpyxl.Workbook()
+sws = swb.active
+# sws = swb.create_sheet(title="인구")
+for i, d in enumerate(data) : 
+    sws.cell(row=i+1, column=1, value=d[0])
+    sws.cell(row=i+1, column=2, value=d[1])
+swb.save(savefile)
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     
