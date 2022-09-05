@@ -359,15 +359,37 @@ AAA@AAA.com
 @aaa.com
 aaa@aaa@com
 aaa@@a.com
-aaaaaaaaaaaaaaaaaaaaa@a.com
+aaaaaaaaaaaaaaaaaaa@a.com
 aa1@aaa.com
 aaa@aaa.7com
 aaa@aaa.co.kr
 """
-p = re.compile("^[a-z][a-z0-9]{2,15}@[a-z0-9]{2,}\.[a-z]{2,}$", re.M)
-print(p.findall(emails))
-p = re.compile("^[a-z][a-z0-9]{2,15}@[a-z0-9]{2,}\.[a-z]{2,}\.[a-z]{2,}$", re.M)
-print(p.findall(emails))
+p = re.compile( "^[a-z][a-z0-9]{2,15}@[a-z0-9]{2,}\.[a-z]{2,}$", re.M )
+print( p.findall( emails ) )
+p = re.compile( "^[a-z][a-z0-9]{2,15}@[a-z0-9]{2,}\.[a-z]{2,}\.[a-z]{2,}$", re.M )
+print( p.findall( emails ) )
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

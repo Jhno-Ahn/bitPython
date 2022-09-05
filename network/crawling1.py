@@ -130,7 +130,6 @@ from webdriver_manager.core.utils import ChromeType
 # 공공데이터 포털 - 국토교통부_아파트매매 실거래 상세 자료
 import urllib.request as req
 import urllib.parse as pa
-# from numpy.typing.tests.test_typing import _strip_filename
 url = "http://openapi.molit.go.kr/OpenAPI_ToolInstallPackage/service/rest/RTMSOBJSvc/getRTMSDataSvcAptTradeDev?LAWD_CD=11545&DEAL_YMD=202207&serviceKey=OUwSlot%2BeCADq1M9zzdj8Sh1Ni9C4Iiaj9VqSEnyvikodjynkoS1hrbUsP6mSENccvTJH%2FDe3s3y7i836Lk7ew%3D%3D"
 # url = "http://openapi.molit.go.kr/OpenAPI_ToolInstallPackage/service/rest/RTMSOBJSvc/getRTMSDataSvcAptTradeDev"
 # values = {
@@ -204,38 +203,37 @@ url = "http://openapi.molit.go.kr/OpenAPI_ToolInstallPackage/service/rest/RTMSOB
     
 # 엑셀 데이터
 import openpyxl
-filename = "stat_100701.xlsx"
-wb = openpyxl.load_workbook(filename)
+filename = "stat_100701.xlsx"    
+wb = openpyxl.load_workbook( filename )
 # ws = wb.worksheets[0]
 ws = wb.active
-for row in ws.rows :
-    for data in row :
-        if data.value == None :
-            print("", end="\t")
-        else :
-            print(data.value, end="\t")
-    print()
+# for row in ws.rows :
+#     for data in row :
+#         if data.value == None :
+#             print( "", end="\t" )
+#         else :   
+#             print( data.value, end="\t" )
+#     print()
 
 data = []
 for row in ws.rows :
     if row[9] != None and row[10] != None :
-        data.append([row[9].value, row[10].value])
-del(data[0:4])
+        data.append( [row[9].value, row[10].value] )
+del( data[0:4])  
 
-data = sorted(data, key=lambda x : x[1], reverse=True)
-for d in data :
-    print(d)
-
+data = sorted( data, key=lambda x : x[1], reverse=True )
+for d in data :      
+    print( d )         
+    
 savefile = "population.xlsx"
 swb = openpyxl.Workbook()
 sws = swb.active
-# sws = swb.create_sheet(title="인구")
-for i, d in enumerate(data) : 
-    sws.cell(row=i+1, column=1, value=d[0])
-    sws.cell(row=i+1, column=2, value=d[1])
-swb.save(savefile)
-
-
+# sws = swb.create_sheet( title="인구" )
+for i, d in enumerate( data ) :
+    sws.cell( row=i+1, column=1, value=d[0] )   
+    sws.cell( row=i+1, column=2, value=d[1] ) 
+swb.save( savefile )
+    
     
     
     
