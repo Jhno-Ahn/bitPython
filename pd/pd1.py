@@ -270,23 +270,25 @@ df.loc[ ::2, ["address"]] = None
 # df.loc[ df["address"] == None, ["address"] ] = "수원"
 df.loc[ df["address"].isnull(), ["address"] ] = "수원"
 
-
 df.loc[:, "income"] = [np.NaN, 5000, np.NaN, 6000]
 df.loc[5, :] = [np.NaN, np.NaN, np.NaN, np.NaN, np.NaN]
-# df = df.dropna(how = "all")
-df.dropna(how="all", inplace=True)
+# df = df.dropna( how="any" )
+# df = df.dropna( how="all" )
+df.dropna( how="all", inplace=True )
 
-# df["income"].fillna(value=0, inplace=True)
-# df["income"].fillna(value=np.mean(df["income"]), inplace=True)
+# df["income"].fillna( value=0, inplace=True )
+# df["income"].fillna( value = np.mean( df["income"] ), inplace=True )
 
-print(df.isnull()["income"])
-print(df.drop(df[df.isnull()["income"]].index , axis=0))
-print(df.drop(["income"], axis=1))
-print(df.drop(["tel", "income"],axis=1))
+print( df.isnull()["income"] )
+print( df.drop( df[ df.isnull()["income"] ].index , axis=0 ) )
+print( df.drop( ["income"], axis=1 ) )
+print( df.drop( ["tel", "income"], axis=1 ) )
 
+
+# 전치
 print( df )
-
-
+# print( df.T )
+print( df.transpose() )
 
 
 
